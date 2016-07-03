@@ -1,10 +1,4 @@
-notify-osd (0.9.35+15.04.20150126-1blankon3) tambora; urgency=medium
-
-  * upstream release
-
- -- Mijortsa <mijortsa@localhost>  Mon, 04 Jul 2016 03:57:03 +0700
-
-notify-osd (0.9.35+15.04.20150126-1blankon2) tambora; urgency=medium
+notify-osd (0.9.35+15.04.20150126-2blankon1) tambora; urgency=medium
 
   * changes target notify-osd.desktop
 
