@@ -473,8 +473,8 @@ defaults_init (Defaults* self)
 					  G_CALLBACK (_gravity_changed),
 					  self);
 
-	// use fixed slot-allocation for async. and sync. bubbles
-	self->slot_allocation = SLOT_ALLOCATION_FIXED;
+	// DEBIAN: Use DYNAMIC slot-allocation (0.9.23-2)
+	self->slot_allocation = SLOT_ALLOCATION_DYNAMIC;
 }
 
 static void
@@ -1865,6 +1865,8 @@ defaults_get_top_corner (Defaults *self, GdkScreen **screen, gint *x, gint *y)
 {
 	GdkRectangle rect;
 	GdkWindow*   active_window    = NULL;
+	GdkDeviceManager* device_manager;
+	GdkDevice*   device;
 	gint         mx;
 	gint         my;
 	gint         monitor          = 0;
@@ -1875,11 +1877,9 @@ defaults_get_top_corner (Defaults *self, GdkScreen **screen, gint *x, gint *y)
 
 	g_return_if_fail (self != NULL && IS_DEFAULTS (self));
 
-	gdk_display_get_pointer (gdk_display_get_default (),
-	                         screen,
-	                         &mx,
-	                         &my,
-	                         NULL);
+	device_manager = gdk_display_get_device_manager (gdk_display_get_default ());
+	device = gdk_device_manager_get_client_pointer (device_manager);
+	gdk_device_get_position (device, screen, &mx, &my);
 
 	is_composited = gdk_screen_is_composited (*screen);
 

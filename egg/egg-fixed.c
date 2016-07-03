@@ -705,7 +705,7 @@ egg_sqrtx (EggFixed x)
      */
     int t = 0;
     int sh = 0;
-#ifndef __arm__
+#if !defined(__arm__) || defined(__ARM_ARCH_4T__) || defined(__ARM_ARCH_4__)
     unsigned int mask = 0x40000000;
 #endif
     unsigned fract = x & 0x0000ffff;
@@ -720,7 +720,7 @@ egg_sqrtx (EggFixed x)
 	/*
 	 * Find the highest bit set
 	 */
-#if __arm__
+#if defined(__arm__) && !defined(__ARM_ARCH_4T__) && !defined(__ARM_ARCH_4__)
 	/* This actually requires at least arm v5, but gcc does not seem
 	 * to set the architecture defines correctly, and it is I think
 	 * very unlikely that anyone will want to use egg on anything
