@@ -5,4 +5,4 @@ Exec=/usr/lib/x86_64-linux-gnu/notify-osd
 Terminal=false
 Type=Application
 NotShowIn=KDE;
-X-GNOME-Autostart-enabled=false
+X-GNOME-Autostart-enabled=true

@@ -1,3 +1,9 @@
+notify-osd (0.9.35+15.04.20150126-2blankon2) tambora; urgency=medium
+
+  * X-GNOME-Autostart-enabled=true 
+
+ -- Mijortsa <mijortsa@localhost>  Mon, 04 Jul 2016 12:08:02 +0700
+
 notify-osd (0.9.35+15.04.20150126-2blankon1) tambora; urgency=medium
 
   * changes target notify-osd.desktop
